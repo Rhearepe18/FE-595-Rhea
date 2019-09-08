@@ -28,14 +28,19 @@ plt.show()
 cos = np.cos(x)
 plt.plot(x,cos)
 
-
+######### Adding tan function #########
+tan = np.tan(x)
+tan[:-1][np.diff(tan) < 0] = np.nan # to remove the asymptotes
+# by default the sine and cosine graphs are between y ranges -1 and 1
+# this is to prevent the y axis from increasing 
+plt.ylim(-1,1)
 # In[22]:
 
-
-plt.plot(x,sine,x,cos)
+# added tan to plot, title and legend
+plt.plot(x,sine,x,cos, x, tan)
 plt.xlabel('x values') 
-plt.ylabel('sin(x) and cos(x)')
-plt.title('Plot of sin and cos')
-plt.legend(['sin(x)', 'cos(x)'])       
+plt.ylabel('sin(x), cos(x) and tan(x)')
+plt.title('Plot of sin , cos and tan')
+plt.legend(['sin(x)', 'cos(x)', 'tan(x)'])       
 plt.show()
 
